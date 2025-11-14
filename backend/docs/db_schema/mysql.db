@@ -1,0 +1,42 @@
+create database movies_review_system;
+use  movies_review_system;
+
+create table users
+(
+    id int primary key auto_increment,
+    first_name varchar(20),
+    last_name varchar(20),
+    email varchar(30) unique,
+    password varchar(20),
+    mobile  varchar(15),
+    birth DATE
+);
+
+
+create table movies
+(
+    id int primary key auto_increment,
+    title varchar(20),
+    release_date Date
+  
+);
+
+create table reviews(
+    id int primary key auto_increment,
+    movie_id int,
+    review varchar(100),
+    rating int,
+    user_id int,
+    modified TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    Foreign key (user_id) references users(id),
+    Foreign Key (movie_id) references movies(id)
+);
+
+create table shares
+(
+    share_id int primary key auto_increment,
+    review_id int,
+    user_id int,
+    Foreign key (review_id) references reviews(id),
+    Foreign key (user_id) references users(id)
+);
