@@ -1,5 +1,5 @@
 import { useState } from 'react'
-
+import {ToastContainer} from 'react-toastify'
 import './App.css'
 import Navbar from './component/Navbar'
 import Login from './pages/Login/Login'
@@ -11,9 +11,7 @@ function App() {
 
   return (
     <>
-    {/* <Navbar/> */}
-    {/* <Login/> */}
-    {/* <Register/> */}
+   
 
   <Routes>
     <Route path='/' 
@@ -25,8 +23,10 @@ function App() {
     <Route path='register' 
     element={<Register/>}
     />
+    
 
-    </Routes>     
+    </Routes>   
+    <ToastContainer/>  
     </>
   )
 }

@@ -24,12 +24,12 @@ create table movies
 create table reviews(
     id int primary key auto_increment,
     movie_id int,
-    review varchar(100),
+    review varchar(350),
     rating int,
     user_id int,
     modified TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    Foreign key (user_id) references users(id),
-    Foreign Key (movie_id) references movies(id)
+    Foreign key (user_id) references users(id) ON DELETE CASCADE on update cascade,
+    Foreign Key (movie_id) references movies(id)  ON DELETE CASCADE on update cascade
 );
 
 create table shares
@@ -37,6 +37,6 @@ create table shares
     share_id int primary key auto_increment,
     review_id int,
     user_id int,
-    Foreign key (review_id) references reviews(id),
-    Foreign key (user_id) references users(id)
+    Foreign key (review_id) references reviews(id)  ON DELETE CASCADE on update cascade,
+    Foreign key (user_id) references users(id)  ON DELETE CASCADE on update cascade
 );
