@@ -1,9 +1,14 @@
-
-function createResult(error, data){
+function createResult(error, data) {
     const result = {}
-        result['status'] = error
-        result['error'] = data
+    if (data) {
+        result['status'] = "success"
+        result['data'] = data
+    }
+    else {
+        result['status'] = "error"
+        result['error'] = error
+    }
     return result
 }
 
-module.exports = createResult
+module.exports = { createResult }
