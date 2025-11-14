@@ -12,5 +12,12 @@ router.post('/add',(request, response)=>{
     })
 })
 
+router.get('/',(request, response)=>{
+    const sql = "SELECT title, release_date FROM movies"
+    pool.query(sql, (error, data)=>{
+        response.send(result(error, data))
+    })
+})
+
 
 module.exports = router
